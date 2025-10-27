@@ -50,12 +50,7 @@ Se levanta el contenedor de MySQL, mapeando el puerto `3307` del host (ya que el
 **Comando (Windows - PowerShell/CMD):**
 ```bash
 # Reemplazar "C:\Ruta\Completa\..." con la ruta absoluta al archivo lab7.sql
-docker run -d ^
--p 3307:3306 ^
---name mysql-local ^
--v "C:\Ruta\Completa\a\lab7.sql":/docker-entrypoint-initdb.d/init.sql ^
--e MYSQL_ROOT_PASSWORD=admin ^
-mysql:8.0
+docker run -d -p 3307:3306 --name mysql-local -v "C:\Ruta\Completa\a\lab7.sql":/docker-entrypoint-initdb.d/init.sql -e MYSQL_ROOT_PASSWORD=admin mysql:8.0
 ```
 
 **Salida de `docker ps`:**
@@ -79,13 +74,7 @@ Se ejecuta la aplicación web, conectándola a la base de datos local a través 
 
 **Comando (Windows - PowerShell/CMD):**
 ```bash
-docker run -d ^
--p 8080:8080 ^
---name webapp-local ^
--e SPRING_DATASOURCE_URL="jdbc:mysql://host.docker.internal:3307/trabajadores_db" ^
--e SPRING_DATASOURCE_USERNAME=root ^
--e SPRING_DATASOURCE_PASSWORD=admin ^
-miwebapp:local
+docker run -d -p 8080:8080 --name webapp-local -e SPRING_DATASOURCE_URL="jdbc:mysql://host.docker.internal:3307/trabajadores_db" -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=admin miwebapp:local
 ```
 
 **Salida de `docker ps`:**
@@ -109,14 +98,11 @@ Despliegue de la pila completa en una instancia de AWS EC2 (t3.micro, Amazon Lin
 Comandos ejecutados en la terminal SSH para preparar la instancia:
 
 ```bash
-# Actualizar paquetes
+
 sudo yum update -y
-# Instalar Docker (para Amazon Linux 2023)
 sudo yum install -y docker
-# Iniciar y habilitar el servicio
 sudo systemctl start docker
 sudo systemctl enable docker
-# Añadir usuario 'ec2-user' al grupo de docker
 sudo usermod -a -G docker ec2-user
 ```
 (Se requiere `exit` y reconexión por SSH para aplicar los permisos)
