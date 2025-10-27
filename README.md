@@ -137,4 +137,6 @@ Se configura una nueva ejecución de tipo `Dockerfile` en IntelliJ para desplega
 
 <img width="1090" height="163" alt="Image" src="https://github.com/user-attachments/assets/5df155b1-7a33-42b4-b084-3a50b3981806" />
 
+<img width="1365" height="687" alt="Image" src="https://github.com/user-attachments/assets/7e29b96c-8f50-4ccc-b138-fb750c47cca2" />
+
 
