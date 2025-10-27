@@ -149,6 +149,7 @@ Se configuran las reglas de entrada del Grupo de Seguridad de AWS para permitir 
 Se configura una nueva ejecución de tipo `Dockerfile` en IntelliJ para desplegar en el Docker daemon remoto vía SSH.
 
 **Configuración de IntelliJ:**
+
 <img width="797" height="688" alt="Image" src="https://github.com/user-attachments/assets/4a7535bd-840d-4034-a2e5-0a188f62195a" />
 
 
