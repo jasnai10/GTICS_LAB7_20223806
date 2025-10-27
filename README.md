@@ -9,13 +9,10 @@ El repositorio incluye el código fuente completo. Los archivos clave para el de
 ### `Dockerfile`
 (Ruta: `/Dockerfile`)
 ```dockerfile
-# Imagen base de OpenJDK 17
 FROM openjdk:26-ea-17-trixie
 VOLUME /tmp
 EXPOSE 8080
-# Copia el .jar generado por Maven y lo renombra
 ADD ./target/lab7-0.0.1-SNAPSHOT.jar lab7.jar
-# Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "lab7.jar"]
 ```
 
